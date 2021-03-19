@@ -12,8 +12,8 @@ editor_options:
 
 # Bearbeite Standardeinstellung
 
-1. Im Code-chunk mit dem Titel 'setup', und
-2. innerhalb der Funktion `set()`:
+1. Schaue in den Code-chunk mit dem Titel 'setup', und
+2. Setze deinen Cursor (Mauszeiger) in die Funktion `set()` ans Ende und:
     - füge das Argument "message" hinzu und setze es auf "FALSE"
     - füge das Argument "warning" hinzu und setze es auf "FALSE"
     - **Tipp:** Kommasetzung beachten
