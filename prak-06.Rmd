@@ -10,11 +10,24 @@ editor_options:
   chunk_output_type: console
 ---
 
+# Bearbeite Standardeinstellung
+
+1. Im Code-chunk mit dem Titel 'setup', und
+2. innerhalb der Funktion `set()`:
+    - füge das Argument "message" hinzu und setze es auf "FALSE"
+    - füge das Argument "warning" hinzu und setze es auf "FALSE"
+    - **Tipp:** Kommasetzung beachten
+
 ```{r setup, include=FALSE}
+
 knitr::opts_chunk$set(echo = TRUE)
+
 ```
 
 # Lade Packages
+
+1. Lade `dplyr` und `palmerpenguins` Packages
+2. Führe den Code-chunk aus
 
 ```{r}
 
@@ -23,23 +36,24 @@ library(palmerpenguins)
 
 ```
 
+# Tastaturkürzel
+
+- *Einen neuen Code-chunk hinzufügen:* Ctrl + Alt + I
+- *Code "Zeile für Zeile" innerhalb eines Code-chunks ausführen:* Ctrl + Enter
+- *Den gesamten Code-chunk ausführen:* Ctrl + Shift + Enter
+- *Die Pipe (%>%):* Ctrl + Shift + M
+
 # Teil 1 - dplyr::filter()
 
 ## Übung 1
 
 Nutze `filter()` um eine Teilmenge von Pinguinen zu erstellen, welche der Art Gentoo angehören und eine Schnabeltiefe (bill depth) grösser oder gleich 15.5 mm haben.  
 
-```{r}
-
-```
+**Füge den Code-chunk für die Übung jeweils selbst hinzu: Ctrl + Alt + I**
 
 ## Übung 2
 
 Nutze `filter()` um eine Teilmenge von Pinguinen zu erstellen, welche Beobachtungen für männliche Pinguine enthält, die auf den Inseln Dream und Biscoe aufgezeichnet wurden. 
-
-```{r}
-
-```
 
 ## Übung 3
 
@@ -53,12 +67,43 @@ Erstelle eine Teilmenge von Pinguinen, die Beobachtungen für weibliche Chinstra
 
 Erstelle eine Teilmenge von Pinguinen, welche entweder Gentoo Pinguine **oder** Pinguine mit einem Körpergewicht (body mass) von mehr als 4500 g enthält.
 
+🧶 ✅ ⬆️ *Knit, commit, und pushe deine Änderungen auf GitHub mit einer Commit-Nachricht deiner Wahl. Achte darauf, alle geänderten Dateien zu committen und zu pushen, damit dein Git-Fenster danach aufgeräumt ist.*
+
 # Teil 1 - dplyr::select()
 
 ## Übung 1
 
-Starte mit dem `penguins` Datensatz und behalte nur die Variable `body_mass_g`. Versuche mindestens drei verschiedene Wege welche dich zum gleichen Ziel bringen.
+Starte mit dem `penguins` Datensatz und behalte nur die Variable `body_mass_g`. Programmiere drei verschiedene Wege welche dich zum gleichen Ziel bringen.
 
 ## Übung 2
 
-Starte mit dem `penguins` 
+Starte mit dem `penguins` Datensatz und behalte nur die Variablen `bill_length_mm`, `body_mass_g`, und `year`.
+
+## Übung 3
+
+Starte mit dem `penguins` Datensatz und behalte alle Variablen bis auf `island`. 
+
+## Übung 4
+
+Starte mit dem `penguins` Datensatz und behalte alle Variablen bis auf `species`, `sex` und `year`. 
+
+## Übung 5
+
+Vom `penguins` Datensatz, behalte alle Spalten welche mit "mm" enden, und die Spalte `species`.
+
+## Übung 6
+
+Vom `penguins` Datensatz, behalte alle Spalten welche den text string "bill" enthalten **oder** auf "mm" enden. 
+
+## Übung 7
+
+Schreibe eine Code Sequenz, welche mit `penguins` startet und:
+
+- Beobachtungen für weibliche Pinguine der Art Adelie auf der Insel Dream enhält, **und dann**
+- die Variable `species` und alle Variablen welche mit "bill" starten behält  
+
+
+
+
+
+
