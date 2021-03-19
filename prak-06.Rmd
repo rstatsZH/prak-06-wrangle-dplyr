@@ -1,0 +1,64 @@
+---
+title: "Praktikum 06"
+name: "Füge deinen Namen hizu"
+date: "Füge ein Datum hinzu"
+output: 
+  html_document: 
+    toc: true
+    toc_float: true
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Lade Packages
+
+```{r}
+
+library(dplyr)
+library(palmerpenguins)
+
+```
+
+# Teil 1 - dplyr::filter()
+
+## Übung 1
+
+Nutze `filter()` um eine Teilmenge von Pinguinen zu erstellen, welche der Art Gentoo angehören und eine Schnabeltiefe (bill depth) grösser oder gleich 15.5 mm haben.  
+
+```{r}
+
+```
+
+## Übung 2
+
+Nutze `filter()` um eine Teilmenge von Pinguinen zu erstellen, welche Beobachtungen für männliche Pinguine enthält, die auf den Inseln Dream und Biscoe aufgezeichnet wurden. 
+
+```{r}
+
+```
+
+## Übung 3
+
+Nutze `filter()` um eine Teilmenge von Pinguinen zu erstellen, welche Beobachtungen für weibliche Pinguine der Art Adelie mit einer Schnabellänge von weniger als 35 mm enthält. 
+
+## Übung 4
+
+Erstelle eine Teilmenge von Pinguinen, die Beobachtungen für weibliche Chinstrap Pinguine auf den Inseln Dream und Torgersen enthält.
+
+## Übung 5
+
+Erstelle eine Teilmenge von Pinguinen, welche entweder Gentoo Pinguine **oder** Pinguine mit einem Körpergewicht (body mass) von mehr als 4500 g enthält.
+
+# Teil 1 - dplyr::select()
+
+## Übung 1
+
+Starte mit dem `penguins` Datensatz und behalte nur die Variable `body_mass_g`. Versuche mindestens drei verschiedene Wege welche dich zum gleichen Ziel bringen.
+
+## Übung 2
+
+Starte mit dem `penguins` 
