@@ -70,7 +70,7 @@ Erstelle eine Teilmenge von Pinguinen, welche entweder Gentoo Pinguine **oder** 
 
 🧶 ✅ ⬆️ *Knit, commit, und pushe deine Änderungen auf GitHub mit einer Commit-Nachricht deiner Wahl. Achte darauf, alle geänderten Dateien zu committen und zu pushen, damit dein Git-Fenster danach aufgeräumt ist.*
 
-# Teil 1 - dplyr::select()
+# Teil 2 - dplyr::select()
 
 ## Übung 1
 
