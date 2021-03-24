@@ -145,14 +145,6 @@ Füge eine Spalte zum `penguins` Datensatz hinzu welche eine neue Spalte mit dem
 
 Die Spalte `year` im `penguins` Datensatz ist derzeit eine Variable der Klasse integer. Füge eine neue Spalte mit dem Namen `year_fct` hinzu, welche das Jahr in eine Variable der Klasse factor umwandelt. **Tipp:** Nutze die Funktion `as_factor()` aus dem R Package `forcats`.
 
-```{r}
-
-penguins %>% 
-  mutate(year_fct = forcats::as_factor(year)) %>% 
-  pull(year_fct)
-
-```
-
 ## Übung 3
 
 Starte mit dem `penguins` Datensatz und innerhalb einer einzigen `mutate()` Funktion:
@@ -161,12 +153,5 @@ Starte mit dem `penguins` Datensatz und innerhalb einer einzigen `mutate()` Funk
 - Füge eine Spalte mit dem Namen `flipper_cm` hinzu, welche die Flossenlänge in Zentimeter angibt
 - Kovertiere die Werte der Variable `island` zu Kleinbuchstaben (**Tipp:** Nutze die base R Funktion `tolower`)
 
-```{r}
 
-penguins %>% 
-  mutate(species = as.character(species),
-         flipper_cm = flipper_length_mm / 10,
-         island = tolower(island))
-
-```
 
