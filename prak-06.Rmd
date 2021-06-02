@@ -1,6 +1,6 @@
 ---
 title: "Praktikum 06"
-name: "Füge deinen Namen hizu"
+author: "Füge deinen Namen hizu"
 date: "Füge ein Datum hinzu"
 output: 
   html_document: 
@@ -118,9 +118,6 @@ Starte mit dem `penguins` Datensatz und schiebe die Variable `species` vor die V
 
 Starte mit dem `penguins` Datensatz und schiebe die Variable `bill_length_mm` and den Anfang, sodass diese zur ersten Spalte wird. 
 
-## Übung 3
-
-Start mit dem `penguins` Datensatz und schiebe alle Variablen der Klasse factor (**Tipp:** `is.factor`) hinter Variablen der Klasse integer (**Tipp:** `is.integer`)
 
 🧶 ✅ ⬆️ *Knit, commit, und pushe deine Änderungen auf GitHub mit einer Commit-Nachricht deiner Wahl. Achte darauf, alle geänderten Dateien zu committen und zu pushen, damit dein Git-Fenster danach aufgeräumt ist.*
 
@@ -133,10 +130,6 @@ Starte mit dem `penguins` Datensatz und benenne die Variable `flipper_length_mm`
 ## Übung 2
 
 Starte mit dem `penguins` Datensatz und benenne die Variable `island` in die Variable `island_name`, und die Variable `species` in die Variable `penguin_spp` um.
-
-## Übung 3
-
-Starte mit dem `penguins` Datensatz und kovertiere alle Variablen welche mit dem Text string "bill" starten zu Grossbuchstaben.
 
 # Teil 5 - dplyr::mutate()
 
