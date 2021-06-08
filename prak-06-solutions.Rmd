@@ -1,0 +1,315 @@
+---
+title: "Untitled"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# Bearbeite Standardeinstellung
+
+1. Schaue in den Code-chunk mit dem Titel 'setup', und:
+2. Setze deinen Cursor (Mauszeiger) in die Funktion `set()` ans Ende und:
+    - füge das Argument "message" hinzu und setze es auf "FALSE"
+    - füge das Argument "warning" hinzu und setze es auf "FALSE"
+    - **Tipp:** Kommasetzung beachten
+3. Stricke das Dokument
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+
+```
+
+# Lade Packages
+
+1. Lade `dplyr` und `palmerpenguins` Packages
+2. Führe den Code-chunk aus
+
+```{r}
+
+library(dplyr)
+library(palmerpenguins)
+
+```
+
+# Tastaturkürzel
+
+Ich habe hier nochmals die wichtigsten Tastaturkürzel für dich hinzugefügt
+
+- *Einen neuen Code-chunk hinzufügen:* Ctrl + Alt + I
+- *Code "Zeile für Zeile" innerhalb eines Code-chunks ausführen:* Ctrl + Enter
+- *Den gesamten Code-chunk ausführen:* Ctrl + Shift + Enter
+- *Die Pipe (%>%):* Ctrl + Shift + M
+- **Der Zuweisungs-Operator (<-)**: Alt + - 
+
+# Teil 1 - dplyr::filter()
+
+## Übung 1
+
+Nutze `filter()` um eine Teilmenge von Pinguinen zu erstellen, welche der Art Gentoo angehören und eine Schnabeltiefe (bill depth) grösser oder gleich 15.5 mm haben.  
+
+```{r}
+
+penguins %>% 
+  filter(species == "Gentoo",
+         bill_depth_mm >= 15.5)
+
+```
+
+## Übung 2
+
+Nutze `filter()` um eine Teilmenge von Pinguinen zu erstellen, welche Beobachtungen für männliche Pinguine enthält, die auf den Inseln Dream und Biscoe aufgezeichnet wurden. 
+
+```{r}
+
+penguins %>% 
+  filter(sex == "male",
+         island %in% c("Biscoe", "Dream"))
+
+penguins %>% 
+  filter(sex == "male",
+         island == "Biscoe" | island == "Dream")
+
+
+```
+
+
+## Übung 3
+
+Nutze `filter()` um eine Teilmenge von Pinguinen zu erstellen, welche Beobachtungen für weibliche Pinguine der Art Adelie mit einer Schnabellänge von weniger als 35 mm enthält. 
+
+```{r}
+
+penguins %>% 
+  filter(sex == "female",
+         species == "Adelie",
+         bill_length_mm < 35)
+
+```
+
+
+## Übung 4
+
+Erstelle eine Teilmenge von Pinguinen, die Beobachtungen für weibliche Chinstrap Pinguine auf den Inseln Dream und Torgersen enthält.
+
+```{r}
+
+penguins %>% 
+  filter(sex == "female",
+         island %in% c("Dream", "Torgersen"))
+
+```
+
+
+## Übung 5
+
+Erstelle eine Teilmenge von Pinguinen, welche entweder Gentoo Pinguine **oder** Pinguine mit einem Körpergewicht (body mass) von mehr als 4500 g enthält.
+
+```{r}
+
+penguins %>% 
+  filter(species == "Gentoo" | body_mass_g > 4500) 
+
+```
+
+
+🧶 ✅ ⬆️ *Knit, commit, und pushe deine Änderungen auf GitHub mit einer Commit-Nachricht deiner Wahl. Achte darauf, alle geänderten Dateien zu committen und zu pushen, damit dein Git-Fenster danach aufgeräumt ist.*
+
+# Teil 2 - dplyr::select()
+
+## Übung 1
+
+Starte mit dem `penguins` Datensatz und behalte nur die Variable `body_mass_g`. Programmiere drei verschiedene Wege welche dich zum gleichen Ziel bringen.
+
+```{r}
+
+penguins %>% 
+  select(body_mass_g)
+
+penguins %>% 
+  select(starts_with("body"))
+
+penguins %>% 
+  select(!species:flipper_length_mm, -sex, -year)
+
+
+```
+
+
+## Übung 2
+
+Starte mit dem `penguins` Datensatz und behalte nur die Variablen `bill_length_mm`, `body_mass_g`, und `year`.
+
+```{r}
+
+penguins %>% 
+  select(bill_length_mm, body_mass_g, year)
+
+```
+
+
+## Übung 3
+
+Starte mit dem `penguins` Datensatz und behalte alle Variablen bis auf `island`. 
+
+```{r}
+
+penguins %>% 
+  select(!island)
+
+```
+
+
+## Übung 4
+
+Starte mit dem `penguins` Datensatz und behalte alle Variablen bis auf `species`, `sex` und `year`. 
+
+```{r}
+
+penguins %>% 
+  select(-species, -sex, -year)
+
+```
+
+
+## Übung 5
+
+Vom `penguins` Datensatz, behalte alle Spalten welche mit "mm" enden, und die Spalte `species`.
+
+```{r}
+
+penguins %>% 
+  select(ends_with("mm"), species)
+
+```
+
+## Übung 6
+
+Vom `penguins` Datensatz, behalte alle Spalten welche den text string "bill" enthalten **oder** auf "mm" enden.
+
+```{r}
+
+penguins %>% 
+  select(contains("bill", ends_with("mm")))
+
+```
+
+
+## Übung 7
+
+Schreibe eine Code Sequenz, welche mit `penguins` startet und:
+
+- Beobachtungen für weibliche Pinguine der Art Adelie auf der Insel Dream enhält, **und dann**
+- die Variable `species` und alle Variablen welche mit "bill" starten behält  
+
+```{r}
+
+penguins %>% 
+  filter(sex == "female", species == "Adelie", island == "Dream") %>% 
+  select(species, starts_with("bill"))
+
+```
+
+
+🧶 ✅ ⬆️ *Knit, commit, und pushe deine Änderungen auf GitHub mit einer Commit-Nachricht deiner Wahl. Achte darauf, alle geänderten Dateien zu committen und zu pushen, damit dein Git-Fenster danach aufgeräumt ist.*
+
+# Teil 3 - dplyr::relocate()
+
+## Übung 1
+
+Starte mit dem `penguins` Datensatz und schiebe die Variable `species` vor die Variable `sex`
+
+.
+```{r}
+
+penguins %>% 
+  relocate(species, .before = "sex")
+
+```
+
+## Übung 2
+
+Starte mit dem `penguins` Datensatz und schiebe die Variable `bill_length_mm` and den Anfang, sodass diese zur ersten Spalte wird. 
+
+```{r}
+
+penguins %>% 
+  relocate(bill_length_mm)
+
+```
+
+
+
+🧶 ✅ ⬆️ *Knit, commit, und pushe deine Änderungen auf GitHub mit einer Commit-Nachricht deiner Wahl. Achte darauf, alle geänderten Dateien zu committen und zu pushen, damit dein Git-Fenster danach aufgeräumt ist.*
+
+# Teil 4 - dplyr::rename()
+
+## Übung 1
+
+Starte mit dem `penguins` Datensatz und benenne die Variable `flipper_length_mm` in die Variable `flipper_mm` um.
+
+```{r}
+
+penguins %>% 
+  rename(flipper_mm = flipper_length_mm)
+
+```
+
+
+## Übung 2
+
+Starte mit dem `penguins` Datensatz und benenne die Variable `island` in die Variable `island_name`, und die Variable `species` in die Variable `penguin_spp` um.
+
+```{r}
+
+penguins %>% 
+  rename(island_name = island,
+         penguin_spp = species)
+
+```
+
+
+# Teil 5 - dplyr::mutate()
+
+## Übung 1
+
+Füge eine Spalte zum `penguins` Datensatz hinzu welche eine neue Spalte mit dem Namen `flipper_m` enthält. Diese neue Spalte beschreibt die Flössenlänge in Meter konvertiert aus der Spalte `flipper_length_mm` in Millimeter.
+
+```{r}
+
+penguins %>% 
+  mutate(flipper_m = flipper_length_mm / (10 * 100)) 
+
+```
+
+
+## Übung 2
+
+Die Spalte `year` im `penguins` Datensatz ist derzeit eine Variable der Klasse integer. Füge eine neue Spalte mit dem Namen `year_fct` hinzu, welche das Jahr in eine Variable der Klasse factor umwandelt. **Tipp:** Nutze die Funktion `as_factor()` aus dem R Package `forcats`.
+
+```{r}
+
+library(forcats)
+
+penguins %>% 
+  mutate(year_fct = as_factor(year)) 
+
+```
+
+## Übung 3
+
+Starte mit dem `penguins` Datensatz und innerhalb einer einzigen `mutate()` Funktion:
+
+- Konvertiere die Variable `species` zu einer Variable der Klasse character
+- Füge eine Spalte mit dem Namen `flipper_cm` hinzu, welche die Flossenlänge in Zentimeter angibt
+- Kovertiere die Werte der Variable `island` zu Kleinbuchstaben (**Tipp:** Nutze die base R Funktion `tolower`)
+
+```{r}
+
+penguins %>% 
+  mutate(species = as.character(species),
+         flipper_cm = flipper_length_mm / 10,
+         island = tolower(island))
+
+```
+
