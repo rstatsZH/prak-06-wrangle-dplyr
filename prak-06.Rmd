@@ -10,18 +10,10 @@ editor_options:
   chunk_output_type: console
 ---
 
-# Bearbeite Standardeinstellung
-
-1. Schaue in den Code-chunk mit dem Titel 'setup', und:
-2. Setze deinen Cursor (Mauszeiger) in die Funktion `set()` ans Ende und:
-    - füge das Argument "message" hinzu und setze es auf "FALSE"
-    - füge das Argument "warning" hinzu und setze es auf "FALSE"
-    - **Tipp:** Kommasetzung beachten
-3. Stricke das Dokument
 
 ```{r setup, include=FALSE}
 
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 
 ```
 
