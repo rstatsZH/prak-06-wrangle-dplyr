@@ -181,7 +181,7 @@ Vom `penguins` Datensatz, behalte alle Spalten welche den text string "bill" ent
 ```{r}
 
 penguins %>% 
-  select(contains("bill", ends_with("mm")))
+  select(contains("bill"), ends_with("mm"))
 
 ```
 
